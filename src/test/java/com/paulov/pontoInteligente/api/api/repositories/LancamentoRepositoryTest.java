@@ -1,4 +1,4 @@
-package com.paulov.pontoInteligente.api.repositories;
+package com.paulov.pontoInteligente.api.api.repositories;
 
 
 
@@ -25,6 +25,9 @@ import com.paulov.pontoInteligente.api.entities.Funcionario;
 import com.paulov.pontoInteligente.api.entities.Lancamento;
 import com.paulov.pontoInteligente.api.enums.PerfilEnum;
 import com.paulov.pontoInteligente.api.enums.TipoEnum;
+import com.paulov.pontoInteligente.api.repositories.EmpresaRepository;
+import com.paulov.pontoInteligente.api.repositories.FuncionarioRepository;
+import com.paulov.pontoInteligente.api.repositories.LancamentoRepository;
 import com.paulov.pontoInteligente.api.utils.PasswordsUtils;
 
 
@@ -58,6 +61,7 @@ public class LancamentoRepositoryTest {
 
 	@After
 	public void tearDown() throws Exception {
+		this.funcionarioRepository.deleteAll();
 		this.empresaRepository.deleteAll();
 	}
 

@@ -21,11 +21,10 @@ import javax.persistence.TemporalType;
 import com.paulov.pontoInteligente.api.enums.TipoEnum;
 @Entity
 @Table(name = "lancamento")
-public class Lancamento implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class Lancamento implements Serializable {
+	
+	private static final long serialVersionUID = 6524560251526772839L;
+
 	private Long id;
 	private Date data;
 	private String descricao;
@@ -36,11 +35,10 @@ public class Lancamento implements Serializable{
 	private Funcionario funcionario;
 
 	public Lancamento() {
-
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
 	public Long getId() {
 		return id;
 	}
@@ -67,8 +65,8 @@ public class Lancamento implements Serializable{
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-
-	@Column(name = "localizacao", nullable = false)
+	
+	@Column(name = "localizacao", nullable = true)
 	public String getLocalizacao() {
 		return localizacao;
 	}
@@ -113,18 +111,18 @@ public class Lancamento implements Serializable{
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
-
+	
 	@PreUpdate
-	public void preUpdate() {
-		dataAtualizacao = new Date();
-	}
-
-	@PrePersist
-	public void prePersist() {
-		final Date atual = new Date();
-		dataCriacao = atual;
-		dataAtualizacao = atual;
-	}
+    public void preUpdate() {
+        dataAtualizacao = new Date();
+    }
+     
+    @PrePersist
+    public void prePersist() {
+        final Date atual = new Date();
+        dataCriacao = atual;
+        dataAtualizacao = atual;
+    }
 
 	@Override
 	public String toString() {

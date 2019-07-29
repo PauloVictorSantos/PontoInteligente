@@ -1,4 +1,4 @@
-package com.paulov.pontoInteligente.api.repositories;
+package com.paulov.pontoInteligente.api.api.repositories;
 
 
 import static org.junit.Assert.assertEquals;
@@ -18,6 +18,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.paulov.pontoInteligente.api.entities.Empresa;
 import com.paulov.pontoInteligente.api.entities.Funcionario;
 import com.paulov.pontoInteligente.api.enums.PerfilEnum;
+import com.paulov.pontoInteligente.api.repositories.EmpresaRepository;
+import com.paulov.pontoInteligente.api.repositories.FuncionarioRepository;
 import com.paulov.pontoInteligente.api.utils.PasswordsUtils;
 
 @RunWith(SpringRunner.class)

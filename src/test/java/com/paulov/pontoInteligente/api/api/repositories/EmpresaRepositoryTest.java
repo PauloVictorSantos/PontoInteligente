@@ -1,7 +1,8 @@
-package com.paulov.pontoInteligente.api.repositories;
+package com.paulov.pontoInteligente.api.api.repositories;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +12,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.paulov.pontoInteligente.api.entities.Empresa;
+import com.paulov.pontoInteligente.api.repositories.EmpresaRepository;
 
 
 @RunWith(SpringRunner.class)
@@ -31,7 +33,7 @@ public class EmpresaRepositoryTest {
 		this.empresaRepository.save(empresa);
 	}
 	
-	@org.junit.After
+	@After
     public final void tearDown() { 
 		this.empresaRepository.deleteAll();
 	}
