@@ -44,7 +44,7 @@ public class FuncionarioRepositoryTest {
 
 	@After
 	public final void tearDown() {
-		this.empresaRepository.deleteAll();
+		//this.empresaRepository.deleteAll();
 	}
 
 	@Test
