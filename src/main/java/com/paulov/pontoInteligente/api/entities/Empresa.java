@@ -1,4 +1,4 @@
-package com.pontoInteligente.api.entities;
+package com.paulov.pontoInteligente.api.entities;
 
 import java.io.Serializable;
 import java.util.Date;
