@@ -1,4 +1,4 @@
-package com.paulov.pontoInteligente.api.services;
+package com.paulov.pontoInteligente.api.services.imp;
 
 import java.util.Optional;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.paulov.pontoInteligente.api.entities.Empresa;
 import com.paulov.pontoInteligente.api.repositories.EmpresaRepository;
-import com.paulov.pontoInteligente.api.services.imp.EmpresaService;
+import com.paulov.pontoInteligente.api.services.EmpresaService;
 
 @Service
 public class EmpresaServiceImp implements EmpresaService {

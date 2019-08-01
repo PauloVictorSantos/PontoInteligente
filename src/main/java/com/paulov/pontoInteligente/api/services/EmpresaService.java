@@ -1,4 +1,4 @@
-package com.paulov.pontoInteligente.api.services.imp;
+package com.paulov.pontoInteligente.api.services;
 
 import java.util.Optional;
 
