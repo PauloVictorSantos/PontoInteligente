@@ -26,8 +26,6 @@ public class FuncionarioServiceTest {
 
 	@MockBean
 	private FuncionarioRepository funcionarioRepository;
-
-	
 	
 	@Autowired
 	private FuncionarioService funcionarioService;
