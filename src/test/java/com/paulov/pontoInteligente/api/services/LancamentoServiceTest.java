@@ -22,8 +22,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.paulov.pontoInteligente.api.entities.Lancamento;
 import com.paulov.pontoInteligente.api.repositories.LancamentoRepository;
 
-import net.bytebuddy.description.type.TypeDefinition.Sort;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
@@ -48,6 +46,8 @@ public class LancamentoServiceTest {
 
 		assertTrue(lancamento.isPresent());
 	}
+
+	
 
 	
 	@Test
