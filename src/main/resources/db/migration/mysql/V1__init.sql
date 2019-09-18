@@ -32,6 +32,9 @@ CREATE TABLE `lancamento` (
   `funcionario_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `hibernate_sequence` ( `sequence_name` VARCHAR(255) NOT NULL , `next_val` BIGINT(20) NOT NULL ) ENGINE = InnoDB;
+
+
 --
 -- Indexes for table `empresa`
 --
@@ -82,3 +85,4 @@ ALTER TABLE `funcionario`
 --
 ALTER TABLE `lancamento`
   ADD CONSTRAINT `FK46i4k5vl8wah7feutye9kbpi4` FOREIGN KEY (`funcionario_id`) REFERENCES `funcionario` (`id`);
+  
