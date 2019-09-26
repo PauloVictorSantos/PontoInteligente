@@ -123,7 +123,7 @@ public class CadastroPFController {
 	 * Popula o DTO de cadastro com os dados do funcionário e empresa.
 	 * 
 	 * @param funcionario
-	 * @return CadastroPFDto
+	 * @return CadastroPFDto 
 	 */
 	private CadastroPFDto converterCadastroPFDto(Funcionario funcionario) {
 		CadastroPFDto cadastroPFDto = new CadastroPFDto();
