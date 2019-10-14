@@ -7,6 +7,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.apache.commons.lang3.EnumUtils;
+import org.aspectj.weaver.ResolvedPointcutDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -187,14 +189,14 @@ public class LancamentoController {
 			result.addError(new ObjectError("funcionario", "Funcionário não encontrado. ID inexistente."));
 		}
 	}
-	
+
 	/**
 	 * Atualiza os dados de um lançamento.
 	 * 
 	 * @param id
 	 * @param lancamentoDto
 	 * @return ResponseEntity<Response<Lancamento>>
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<Response<LancamentoDto>> atualizar(@PathVariable("id") Long id,
@@ -215,6 +217,23 @@ public class LancamentoController {
 		response.setData(this.converterLancamentoDto(lancamento));
 
 		return ResponseEntity.ok(response);
+	}
+
+	@DeleteMapping(value="/{id}")
+	public ResponseEntity<Response<String>> remover(@PathVariable("id") Long id) {
+		log.info("Removendo lancamento: {}", id);
+		Response<String> response = new Response<String>();
+		Optional<Lancamento> lancamento = this.lancamentoService.buscarPorId(id);
+
+		if (!lancamento.isPresent()) {
+			log.info("Erro ao remover devido ao lancamento ID: {} ser inválido.", id);
+			response.getErrors().add(" Erro ao remover lançamento. Registro não encontrado para o id " + id);
+			return ResponseEntity.badRequest().body(response);
+		}
+
+		this.lancamentoService.remover(id);
+		return ResponseEntity.ok(new Response<String>());
+
 	}
 
 }
