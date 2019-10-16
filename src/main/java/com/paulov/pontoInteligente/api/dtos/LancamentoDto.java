@@ -24,12 +24,13 @@ public class LancamentoDto {
 	public void setId(Optional<Long> id) {
 		this.id = id;
 	}
-
+	
+	@NotEmpty(message = "Data não pode ser vazia")
 	public String getData() {
 		return data;
 	}
 	
-	@NotEmpty(message = "Data não pode ser vazia")
+	
 	public void setData(String data) {
 		this.data = data;
 	}

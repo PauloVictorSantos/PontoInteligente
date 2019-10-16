@@ -218,6 +218,12 @@ public class LancamentoController {
 
 		return ResponseEntity.ok(response);
 	}
+	/**
+	 * Remove um lançamento por ID
+	 * @param id
+	 * @return ResponseEntity<Response<Lancamento>>
+	 * 
+	 */
 
 	@DeleteMapping(value="/{id}")
 	public ResponseEntity<Response<String>> remover(@PathVariable("id") Long id) {
