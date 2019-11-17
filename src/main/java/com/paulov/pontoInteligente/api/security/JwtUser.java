@@ -1,4 +1,4 @@
-package com.paulovictor.pontoInteligente.api.security;
+package com.paulov.pontoInteligente.api.security;
 
 import java.util.Collection;
 
