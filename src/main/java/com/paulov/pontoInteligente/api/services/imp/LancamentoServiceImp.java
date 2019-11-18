@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Service;
 import com.paulov.pontoInteligente.api.entities.Lancamento;
 import com.paulov.pontoInteligente.api.repositories.LancamentoRepository;
 import com.paulov.pontoInteligente.api.services.LancamentoService;
+
+import springfox.documentation.annotations.Cacheable;
 
 @Service
 public class LancamentoServiceImp implements LancamentoService {
@@ -25,6 +28,7 @@ public class LancamentoServiceImp implements LancamentoService {
 		return this.lancamentoRepository.findByFuncionarioId(funcionarioId, pageRequest);
 	}
 	
+	@CachePut("lancamentoPorId")
 	public Lancamento persistir(Lancamento lancamento) {
 		log.info("Persistindo o lançamento: {}", lancamento);
 		return this.lancamentoRepository.save(lancamento);
@@ -35,7 +39,7 @@ public class LancamentoServiceImp implements LancamentoService {
 		this.lancamentoRepository.deleteById(id);
 	}
 
-	@Override
+	@Cacheable("lancamentoPorId")
 	public Optional<Lancamento> buscarPorId(Long id) {
 		log.info("Buscando um lançamento pelo ID {}", id);
 		return Optional.ofNullable(this.lancamentoRepository.findById(id));
