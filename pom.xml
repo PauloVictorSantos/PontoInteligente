@@ -9,7 +9,7 @@
 		<version>2.2.0.BUILD-SNAPSHOT</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
+	<groupId>com.paulov</groupId>
 	<artifactId>PontoInteligente</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PontoInteligente</name>
